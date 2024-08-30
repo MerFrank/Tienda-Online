@@ -75,4 +75,40 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
   </main>
 
-  <?php require('./layout/footer.php')?>
+<main>
+  <section class="py-5    ">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <!--Tarjeta producto-->
+        <?php foreach ($resultado as $row) {?>
+          <div class="col mb-5">
+            <div class="producto">
+              <div class="card h-100">
+              <!--Imagen producto-->  
+              <img src="" alt="...">
+              <!--Detalles producto-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!--Nombre producto-->
+                  <h5 class="fw-bolder"><?php  echo $row['nombre'];  ?></h5>
+                  <!-- Precio producto -->
+                  <p>$ <?php echo number_format($row['precio'],2,'.',',');?></p>
+                </div>
+                <!-- Botones -->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="botones">
+                  <button  class="btn btn-outline-dark mt-auto">Añadir al carrito</button>
+                  <button  class="btn btn-outline-dark mt-auto">Comprara Ahora</button>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <?php }?>
+      </div>
+    </div>
+  </section>
+</main>
+
+<?php require('./layout/footer.php')?>

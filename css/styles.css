@@ -94,6 +94,13 @@ body {
   
   .botones{
   line-height: 3;
+  display: flex; /* Activa el contenedor flex */
+  flex-direction: column; /* Cambia la dirección del flujo a columna */
+  justify-content: space-between; /* Distribuye los elementos */
+  align-items: center; /* Centra los elementos verticalmente */
+  text-align: center;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el texto que se desborda */
   }
   
 .carousel-inner{

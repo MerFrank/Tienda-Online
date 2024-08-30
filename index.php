@@ -84,8 +84,14 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
           <div class="col mb-5">
             <div class="producto">
               <div class="card h-100">
-              <!--Imagen producto-->  
-              <img src="" alt="...">
+              <!--Imagen producto-->
+              <?php $id=$row["id_producto"];
+              $imagen = "./img/Productos/". $id . "/principal.jpg";
+              if(!file_exists($imagen)){
+                $imagen = "./img/no-photo.jpg";
+              }
+              ?>
+              <img src="<?php echo $imagen ?>">
               <!--Detalles producto-->
               <div class="card-body p-4">
                 <div class="text-center">

@@ -7,7 +7,7 @@ $sql = $con->prepare("SELECT id_producto, nombre, precio FROM productos WHERE ac
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-//Este es un comentario de prueba//
+
 
 ?>
 

@@ -70,42 +70,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
-        
 
-
-        <!-- Bloque del producto-->
-        <section class="py-5    ">
-        <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-        <?php foreach($productos as $row) { ?>
-<div class="col mb-5">
-<div class="producto">
-  <div class="card h-100">
-    <!-- Imgagen del producto-->
-        <img class="d-block w-100" src="" alt="..." />
-        <!-- Descripción-->
-        <div class="card-body p-4">
-            <div class="text-center">
-                <!-- Nombre del producto-->
-                <h5 class="fw-bolder"> <?php  echo $row['nombre'];  ?> </h5>
-                <!-- Precio del producto-->
-                <p>$ <?php echo number_format($row['precio'],2,'.',',');?>
-                </p>
-            </div>
-        </div>
-        <!-- Botones-->
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent" >
-            <div class="botones">
-            <button  class="btn btn-outline-dark mt-auto">Añadir al carrito</button>
-            <button  class="btn btn-outline-dark mt-auto">Comprara Ahora</button>
-        </div>    
-        </div>
-    </div>
-</div>  
-</div>    <!-- Este mantiene las comulnas-->
-<?php } ?> 
+<?php ?> 
 
   </main>
 

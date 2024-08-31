@@ -1,5 +1,5 @@
 <?php require('./config/db.php');
-
+require("./config/config.php");
 $db = new Database();
 $con = $db->conectar();
 
@@ -103,8 +103,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Botones -->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                   <div class="botones">
-                  <button  class="btn btn-outline-dark mt-auto">Añadir al carrito</button>
-                  <button  class="btn btn-outline-dark mt-auto">Comprara Ahora</button>
+                  <a href="detalles.php?id=<?php echo $row["id_producto"];?>&token=<?php echo
+                  hash_hmac("sha512",$row["id_producto"],KEY_TOKEN)?>">
+                  <button  class="btn btn-outline-dark mt-auto">Detalles</button>
+                  </a>
+                  <a href="">
+                    <button class="btn btn-outline-dark mt-auto">Compara ahora</button>
+                  </a>
                   </div>
                 </div>
               </div>

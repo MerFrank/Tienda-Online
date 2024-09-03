@@ -12,28 +12,41 @@ if($id == "" || $token == ""){
 } else{
     $token_tmp = hash_hmac("sha512",$id,KEY_TOKEN);
     if($token == $token_tmp){
-
+        $sql = $con->prepare("SELECT count(id_producto) FROM productos WHERE id_producto=? AND activo=1");
+        $sql->execute([$id]);
+        if($sql->fetchColumn() > 0){
+            $sql = $con->prepare("SELECT nombre, descripción, precio FROM productos WHERE id_producto=? AND activo=1
+            LIMIT 1");
+            $sql->execute([$id]);
+            $row = $sql->fetch(PDO::FETCH_ASSOC);
+            $nombre = $row["nombre"];
+            $descricion = $row["descripción"];
+            $precio = $row["precio"];
+        }
     }else{
         echo "Error al procesar la petición";
         exit;
     }
 }
-
-$sql = $con->prepare("SELECT id_producto, nombre, precio FROM productos WHERE activo=1");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php require('./layout/header.php')?>
+<main> 
+<!-- Este main es del header -->
 
-<main>
+<body>
+    <main>
+        <div class="container px-4 px-lg-5 mt-5 py-5">
+            <div class="row">
+                <div class="col-md-6 order-md-1">
+                    <img src="./img/Productos/1/principal.jpg" alt="">
+                </div>
+                <div class="col-md-6 order-md-2">
 
-
-
-<main>
-    <div class="container">
-
-    </div>
-</main>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
 
 <?php require('./layout/footer.php')?>

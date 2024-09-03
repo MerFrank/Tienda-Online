@@ -1,4 +1,5 @@
 <?php 
-define("KEY_TOKEN", "4V%!uYz32")
+define("KEY_TOKEN", "4V%!uYz32");
+// define("MOENDA,$");
 
 ?>

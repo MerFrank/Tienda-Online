@@ -91,7 +91,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 $imagen = "./img/no-photo.jpg";
               }
               ?>
-              <img src="<?php echo $imagen ?>">
+              <img src="<?php echo $imagen ?>" class="d-block w-100">
               <!--Detalles producto-->
               <div class="card-body p-4">
                 <div class="text-center">

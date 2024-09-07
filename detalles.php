@@ -50,7 +50,7 @@ if($id == "" || $token == ""){
 <main> 
 <!-- Este main es del header -->
 
-<body>
+
     <main>
         <div class="container px-4 px-lg-5 mt-5 py-5">
             <div class="row">
@@ -68,7 +68,7 @@ if($id == "" || $token == ""){
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden">Siguiente</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -79,7 +79,16 @@ if($id == "" || $token == ""){
                 </div>
                 <div class="col-md-6 order-md-2">
                     <h2><?php echo $nombre;?></h2>
-                    <h2><?php echo MONEDA . number_format($precio,2,".",",");?></h2>
+                    <?php if ($descuento > 0){?>
+                        <p><del><?php echo MONEDA . number_format($precio,2,".",",");?></del></p>
+                        <h2>
+                            <?php echo MONEDA . number_format($precio_desc,2,".",",");?>
+                            <small class="text-success"><?php echo $descuento;?> % descuento</small>
+                        </h2>
+                    <?php } else { ?>
+                        <h2><?php echo MONEDA . number_format($precio,2,".",",");?></h2>
+                    <?php } ?>
+
                     <p class="lead">
                         <?php echo $descricion ?>
                     </p>
@@ -91,6 +100,6 @@ if($id == "" || $token == ""){
             </div>
         </div>
     </main>
-</body>
+
 
 <?php require('./layout/footer.php')?>

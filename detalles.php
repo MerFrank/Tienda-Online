@@ -47,58 +47,59 @@ if($id == "" || $token == ""){
 ?>
 
 <?php require('./layout/header.php')?>
-<main> 
-<!-- Este main es del header -->
+
 
 
     <main>
-        <div class="container px-4 px-lg-5 mt-5 py-5">
-            <div class="row">
-                <div class="col-md-6 order-md-1">
-                <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="<?php echo $rutaImg; ?>" class="d-block w-100">
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5 py-5">
+                <div class="row">
+                    <div class="col-md-6 order-md-1">
+                    <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="<?php echo $rutaImg; ?>" class="d-block w-100">
+                            </div>
+                            <?php foreach ($imagenes as $img){?>
+                            <div class="carousel-item">
+                                <img src="<?php echo $img;?>" class="d-block w-100">
+                            </div>
+                            <?php } ?>
                         </div>
-                        <?php foreach ($imagenes as $img){?>
-                        <div class="carousel-item">
-                            <img src="<?php echo $img;?>" class="d-block w-100">
-                        </div>
-                        <?php } ?>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
 
-                </div>
-                <div class="col-md-6 order-md-2">
-                    <h2><?php echo $nombre;?></h2>
-                    <?php if ($descuento > 0){?>
-                        <p><del><?php echo MONEDA . number_format($precio,2,".",",");?></del></p>
-                        <h2>
-                            <?php echo MONEDA . number_format($precio_desc,2,".",",");?>
-                            <small class="text-success"><?php echo $descuento;?> % descuento</small>
-                        </h2>
-                    <?php } else { ?>
-                        <h2><?php echo MONEDA . number_format($precio,2,".",",");?></h2>
-                    <?php } ?>
+                    </div>
+                    <div class="col-md-6 order-md-2">
+                        <h2><?php echo $nombre;?></h2>
+                        <?php if ($descuento > 0){?>
+                            <p><del><?php echo MONEDA . number_format($precio,2,".",",");?></del></p>
+                            <h2>
+                                <?php echo MONEDA . number_format($precio_desc,2,".",",");?>
+                                <small class="text-success"><?php echo $descuento;?> % descuento</small>
+                            </h2>
+                        <?php } else { ?>
+                            <h2><?php echo MONEDA . number_format($precio,2,".",",");?></h2>
+                        <?php } ?>
 
-                    <p class="lead">
-                        <?php echo $descricion ?>
-                    </p>
-                    <div class="d-grid gap-3 col-10 mx-auto">
-                        <button class="btn btn-primary" type="button">Compara ahora</button>
-                        <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+                        <p class="lead">
+                            <?php echo $descricion ?>
+                        </p>
+                        <div class="d-grid gap-3 col-10 mx-auto">
+                            <button class="btn btn-primary" type="button">Compara ahora</button>
+                            <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
 
